@@ -1,6 +1,8 @@
 #include <windows.h> // inculdes windows32 api
 
 LRESULT CALLBACK WindowProcidure(HWND, UINT, WPARAM, LPARAM); // reserves the main procedure function
+void AddControls(HWND hWnd);
+void LoadImages();
 
 int WINAPI WinMain(HINSTANCE hInst , HINSTANCE hPrevInst, LPSTR lpCmdLine, int nCmdShow)
 {
@@ -33,8 +35,16 @@ LRESULT CALLBACK WindowProcidure(HWND hWnd, UINT msg, WPARAM wp, LPARAM lp)
     case WM_DESTROY: // Checks for exit command
         PostQuitMessage(0); 
         break;
+    case WM_CREATE:
+        AddControls(hWnd);
     default:
         return DefWindowProcW(hWnd, msg, wp, lp); //Checks for any message in the console
     }
     return 0;
 }
+
+void AddControls(HWND HWnd) //What to do when the App Starts
+{}
+
+void LoadImages()
+{}
